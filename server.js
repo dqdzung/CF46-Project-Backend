@@ -1,9 +1,10 @@
 const express = require("express");
-const app = express();
 const mongoose = require("mongoose");
+const AuthRouter = require("./modules/auth/auth.router");
 
 require("dotenv").config();
 
+const app = express();
 const PORT = process.env.PORT || 9000;
 
 mongoose.connect(
@@ -19,6 +20,10 @@ mongoose.connect(
 		console.log("MongoDB Server connected...");
 	}
 );
+
+app.use(express.json());
+
+app.use("/api/auth", AuthRouter);
 
 app.get("*", (req, res) => {
 	res.status(404).send({
