@@ -18,11 +18,8 @@ const getItems = async () => {
 
 const editItem = async (id, { name, price }) => {
 	let data;
-
 	if (!name) data = { price: price };
-
 	if (!price) data = { name: name };
-
 	if (name && price) data = { name: name, price: price };
 
 	const updatedItem = ItemModel.findByIdAndUpdate(id, data, { new: true });
