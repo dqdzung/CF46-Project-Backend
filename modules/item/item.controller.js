@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const ItemModel = require("./item");
 
-const createItem = async ({ name, price }) => {
+const addItem = async ({ name, price }) => {
 	const newItem = ItemModel.create({
 		name: name,
 		price: price,
@@ -17,11 +17,15 @@ const getItems = async () => {
 };
 
 const editItem = async (id, { name, price }) => {
-	const updatedItem = ItemModel.findByIdAndUpdate(
-		id,
-		{ name: name, price: price },
-		{ new: true }
-	);
+	let data;
+
+	if (!name) data = { price: price };
+
+	if (!price) data = { name: name };
+
+	if (name && price) data = { name: name, price: price };
+
+	const updatedItem = ItemModel.findByIdAndUpdate(id, data, { new: true });
 
 	return updatedItem;
 };
@@ -31,3 +35,5 @@ const deleteItem = async (id) => {
 
 	return deletedItem;
 };
+
+module.exports = { addItem, getItems, editItem, deleteItem };
