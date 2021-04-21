@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const AuthRouter = require("./modules/auth/auth.router");
+const ItemRouter = require("./modules/item/item.router");
 
 require("dotenv").config();
 
@@ -24,6 +25,7 @@ mongoose.connect(
 app.use(express.json());
 
 app.use("/api/auth", AuthRouter);
+app.use("/api/item", ItemRouter);
 
 app.get("*", (req, res) => {
 	res.status(404).send({

@@ -1,4 +1,5 @@
 const express = require("express");
+const { tokenAuth } = require("../../middleware/tokenAuth");
 const AuthController = require("./auth.controller");
 
 const Router = new express.Router();
@@ -41,5 +42,15 @@ Router.post("/login", async (req, res) => {
 		});
 	}
 });
+
+//Test tokenAuth middleware
+// Router.get("/user", tokenAuth, async (req, res) => {
+// 	try {
+// 		const user = req.user;
+// 		res.send({ success: 1, data: user });
+// 	} catch (err) {
+// 		res.send({ success: 0, message: err.message });
+// 	}
+// });
 
 module.exports = Router;
