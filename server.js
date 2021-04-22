@@ -16,9 +16,8 @@ mongoose.connect(
 		useFindAndModify: false,
 	},
 	(err) => {
-		if (err) {
-			return console.log("MongoDB Server error", err);
-		}
+		if (err) return console.log("MongoDB Server error", err);
+
 		console.log("MongoDB Server connected...");
 	}
 );
@@ -36,8 +35,7 @@ app.get("*", (req, res) => {
 });
 
 app.listen(PORT, (err) => {
-	if (err) {
-		return console.log("Server Error", err);
-	}
+	if (err) return console.log("Server Error", err);
+
 	console.log(`Server started at port ${PORT}...`);
 });

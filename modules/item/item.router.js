@@ -55,4 +55,20 @@ Router.put("/:id", async (req, res) => {
 	}
 });
 
+Router.delete("/:id", async (req, res) => {
+	try {
+		const { id } = req.params;
+
+		const deletedItem = await ItemController.deleteItem(id);
+
+		res.send({
+			success: 1,
+			message: "Deleted",
+			data: deletedItem,
+		});
+	} catch (err) {
+		res.status(500).send({ success: 0, message: err.message });
+	}
+});
+
 module.exports = Router;

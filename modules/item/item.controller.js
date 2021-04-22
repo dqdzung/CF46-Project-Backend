@@ -28,7 +28,7 @@ const editItem = async (id, { name, price }) => {
 };
 
 const deleteItem = async (id) => {
-	deletedItem = ItemModel.findByIdAndDelete(id);
+	const deletedItem = ItemModel.findByIdAndDelete(id);
 
 	return deletedItem;
 };
