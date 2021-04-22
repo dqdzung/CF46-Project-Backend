@@ -18,10 +18,7 @@ Router.post("/signup", async (req, res) => {
 			data: newUser,
 		});
 	} catch (err) {
-		res.status(500).send({
-			success: 0,
-			message: err.message,
-		});
+		res.status(500).send({ success: 0, message: err.message });
 	}
 });
 
@@ -36,10 +33,7 @@ Router.post("/login", async (req, res) => {
 			data: user,
 		});
 	} catch (err) {
-		res.status(500).send({
-			success: 0,
-			message: err.message,
-		});
+		res.status(500).send({ success: 0, message: err.message });
 	}
 });
 

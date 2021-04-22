@@ -10,7 +10,7 @@ const addItem = async ({ name, price }) => {
 	return newItem;
 };
 
-const getItems = async () => {
+const getAll = async () => {
 	const foundItems = ItemModel.find().select("-__v");
 
 	return foundItems;
@@ -33,4 +33,4 @@ const deleteItem = async (id) => {
 	return deletedItem;
 };
 
-module.exports = { addItem, getItems, editItem, deleteItem };
+module.exports = { addItem, getAll, editItem, deleteItem };
