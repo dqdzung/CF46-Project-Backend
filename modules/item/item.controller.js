@@ -16,6 +16,12 @@ const getAll = async () => {
 	return foundItems;
 };
 
+const getOne = async (id) => {
+	const foundOne = ItemModel.findById(id);
+
+	return foundOne;
+};
+
 const editItem = async (id, { name, price }) => {
 	let data;
 	if (!name) data = { price: price };
@@ -33,4 +39,4 @@ const deleteItem = async (id) => {
 	return deletedItem;
 };
 
-module.exports = { addItem, getAll, editItem, deleteItem };
+module.exports = { addItem, getAll, editItem, deleteItem, getOne };
