@@ -34,9 +34,14 @@ Router.get("/:id", async (req, res) => {
 
 Router.post("/", async (req, res) => {
 	try {
-		const { name, price } = req.body;
+		const { name, price, imageUrl, type } = req.body;
 
-		const newItem = await ItemController.addItem({ name, price });
+		const newItem = await ItemController.addItem({
+			name,
+			price,
+			imageUrl,
+			type,
+		});
 
 		res.send({
 			success: 1,
@@ -50,9 +55,16 @@ Router.post("/", async (req, res) => {
 Router.put("/:id", async (req, res) => {
 	try {
 		const { id } = req.params;
-		const { name, price } = req.body;
 
-		const updatedItem = await ItemController.editItem(id, { name, price });
+		let updateData = {};
+
+		Object.keys(req.body).forEach((key) => {
+			if (req.body[key]) {
+				updateData[key] = req.body[key];
+			}
+		});
+
+		const updatedItem = await ItemController.editItem(id, updateData);
 
 		res.send({
 			success: 1,
