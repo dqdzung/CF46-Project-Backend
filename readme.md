@@ -4,7 +4,7 @@ Order taking app (digital bill?)
 - Admin: admin page, CRUD item (DB), check past bills, profit
 - User: order, billing
 
-Model Schema: User, Item,
+Model Schema: User, Item, Bill?
 
 Tech:
 
