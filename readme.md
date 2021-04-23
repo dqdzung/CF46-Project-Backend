@@ -1,8 +1,8 @@
-Order taking app for a restaurant
+Order taking app (digital bill?)
 
 - General features: Home, Sign Up, Login
-- User: CRUD item, check past bills, profit
-- Guest: order, billing
+- Admin: admin page, CRUD item (DB), check past bills, profit
+- User: order, billing
 
 Model Schema: User, Item,
 
