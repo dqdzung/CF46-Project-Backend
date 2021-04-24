@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const AuthRouter = require("./modules/auth/auth.router");
 const ItemRouter = require("./modules/item/item.router");
 
@@ -22,6 +23,7 @@ mongoose.connect(
 	}
 );
 
+app.use(cors());
 app.use(express.json());
 
 app.use("/api/auth", AuthRouter);

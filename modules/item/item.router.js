@@ -34,12 +34,12 @@ Router.get("/:id", async (req, res) => {
 
 Router.post("/", async (req, res) => {
 	try {
-		const { name, price, imageUrl, type } = req.body;
+		const { name, price, imgUrl, type } = req.body;
 
 		const newItem = await ItemController.addItem({
 			name,
 			price,
-			imageUrl,
+			imgUrl,
 			type,
 		});
 

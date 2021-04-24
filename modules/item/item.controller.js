@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 const ItemModel = require("./item");
 
-const addItem = async ({ name, price, imageUrl, type }) => {
+const addItem = async ({ name, price, imgUrl, type }) => {
 	const newItem = ItemModel.create({
 		name: name,
 		price: price,
 		type: type,
-		imageUrl: imageUrl,
+		imgUrl: imgUrl,
 	});
 
 	return newItem;
