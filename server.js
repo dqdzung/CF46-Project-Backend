@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const AuthRouter = require("./modules/auth/auth.router");
 const ItemRouter = require("./modules/item/item.router");
+const BillRouter = require("./modules/bill/bill.router");
 
 require("dotenv").config();
 
@@ -28,6 +29,7 @@ app.use(express.json());
 
 app.use("/api/auth", AuthRouter);
 app.use("/api/item", ItemRouter);
+app.use("/api/bill", BillRouter);
 
 app.get("*", (req, res) => {
 	res.status(404).send({
