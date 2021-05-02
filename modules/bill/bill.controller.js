@@ -34,4 +34,10 @@ const saveBill = async ({ items, total, table }) => {
 	return newBill;
 };
 
-module.exports = { getBills, saveBill, getTableBill, updateBill };
+const deleteBill = async (tableId) => {
+	const deleted = await BillModel.findOneAndDelete({ table: tableId });
+
+	return deleted;
+};
+
+module.exports = { getBills, saveBill, getTableBill, updateBill, deleteBill };

@@ -71,4 +71,22 @@ Router.post("/", async (req, res) => {
 	}
 });
 
+Router.delete("/:id", async (req, res) => {
+	try {
+		const { id } = req.params;
+
+		const deletedBill = await BillController.deleteBill(id);
+
+		return res.send({
+			success: 1,
+			data: deletedBill,
+		});
+	} catch (err) {
+		res.status(500).send({
+			success: 0,
+			message: err.message,
+		});
+	}
+});
+
 module.exports = Router;
